@@ -24,15 +24,12 @@ function operatate(operator, num1, num2) {
 
 
 const display = document.getElementById("display");
-
-
 const buttons = document.querySelectorAll("#keys button:not(#acButton)");
+const acButton = document.getElementById("acButton");
 
 
 let isFirstClick = true;
-
-
-const acButton = document.getElementById("acButton");
+let currentNumber = '';
 
 acButton.addEventListener("click", () => {
   display.textContent = "0";
@@ -42,13 +39,11 @@ acButton.addEventListener("click", () => {
 buttons.forEach(button => {
   button.addEventListener("click", () => {
     const number = button.textContent;
+    const currentValue = display.textContent;
 
-    if (isFirstClick) {
-      display.textContent = number;
-      isFirstClick = false;
-    } else {
-      const currentValue = display.textContent;
-      display.textContent = currentValue + number;
-    }
+    display.textContent = currentValue === "0" ? number : currentValue + number;
   });
 });
+
+
+
