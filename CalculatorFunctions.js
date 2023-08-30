@@ -21,16 +21,34 @@ function operatate(operator, num1, num2) {
     }
 }
 
-let first = 5;
-let second = 5;
-let operator = "+";
 
-const keysDiv = document.getElementById('keys');
 
-keysDiv.addEventListener('click', (event) => {
-  if (event.target.nodeName !== 'BUTTON') {
-    return;
-  }
+const display = document.getElementById("display");
 
-  const number = event.target.innerText;
-  console.log(number);});
+
+const buttons = document.querySelectorAll("#keys button:not(#acButton)");
+
+
+let isFirstClick = true;
+
+
+const acButton = document.getElementById("acButton");
+
+acButton.addEventListener("click", () => {
+  display.textContent = "0";
+  isFirstClick = true;
+});
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const number = button.textContent;
+
+    if (isFirstClick) {
+      display.textContent = number;
+      isFirstClick = false;
+    } else {
+      const currentValue = display.textContent;
+      display.textContent = currentValue + number;
+    }
+  });
+});
