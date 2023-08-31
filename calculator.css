@@ -1,49 +1,49 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #00AAFF, #dbf36d);
+}
 #display {
-    background-color: #222222;
-    color: #fff;
-    font-size: 1.714285714em;
-    padding: 0.5em 0.75em;
-    text-align: right;
+  grid-column: 1 / -1;
+  background-color: rgba(0 , 0, 0, .75);
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  word-wrap: break-word;
+  word-break: break-all;
   }
 
+#display .previous-operand {
+  color: rgba(255, 255, 255, .75);
+  font-size: 1.5rem;
+}
+#display .current-operand {
+  color: rgba(255, 255, 255, .75);
+  font-size: 2.5rem;
+  }
 #calculator {
-    box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
-    margin-top: 2em;
-    max-width: 50em;
-    max-height: 50em;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #keys {
-    background-color: whitesmoke;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 2px;
-  }
-
-#equal-key {
-    background-color:  #ff7033;
-    grid-column: 1 / span 4;
-    width: auto; 
-  }
+   display: grid;
+   justify-content: center;
+   align-content: center;
+   min-height: 100vh;
+   grid-template-columns: repeat(4, 100px);
+   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
   
-  button {
-    width: 100px;
-    height: 80px;
-    border: 2px solid #cccccc;
-    border-radius: 0;
-    background-color: white;
-    color: black;
-    font-size: 16px;
-    text-align: center;
-    box-sizing: border-box;
+#equal-key,
+#acButton {
+  grid-column: span 2;  
+}
+
+
+#calculator > button {
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, .75);
+  outline: none;
+  font-size: 2rem;
   }
 
 
